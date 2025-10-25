@@ -1,9 +1,22 @@
-# Nhập hai số từ người dùng
-a = float(input("Nhập số a: "))
-b = float(input("Nhập số b: "))
+def factorial(n: int) -> int:
+    """Calculate the factorial of a non-negative integer.
 
-# Tính tích
-ketqua = a * b
+    Args:
+        n: A non-negative integer.
 
-# In kết quả
-print(f"Tích của {a} và {b} là: {ketqua}")
+    Returns:
+        The factorial of n (n!).
+
+    Raises:
+        ValueError: If n is negative.
+    """
+    if not isinstance(n, int):
+        raise TypeError('Input must be an integer')
+    
+    if n < 0:
+        raise ValueError('Factorial is not defined for negative numbers')
+        
+    if n == 0 or n == 1:
+        return 1
+    
+    return n * factorial(n - 1)
